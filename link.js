@@ -14,6 +14,7 @@ H5P.Link = (function ($) {
     // Add default parameters
     parameters = $.extend(true, {
       title: 'New link',
+      openInTheSameTab: false,
       linkWidget: {
         protocol: '',
         url: ''
@@ -33,7 +34,8 @@ H5P.Link = (function ($) {
      */
     this.attach = function ($container) {
       var sanitizedUrl = sanitizeUrlProtocol(url);
-      $container.addClass('h5p-link').html('<a href="' + sanitizedUrl + '" target="_blank">' + parameters.title + '</a>')
+      var target = parameters.openInTheSameTab ? '_parent' : '_blank';
+      $container.addClass('h5p-link').html('<a href="' + sanitizedUrl + '" target="' + target + '">' + parameters.title + '</a>')
                 .keypress(function (event) {
                   if (event.which === 32) {
                     this.click();
@@ -48,6 +50,15 @@ H5P.Link = (function ($) {
      */
     this.getUrl = function () {
       return url;
+    };
+
+    /**
+     * Return openInTheSameTab parameter
+     *
+     * @returns {bool}
+     */
+    this.isOpenInTheSameTab = function () {
+      return parameters.openInTheSameTab;
     };
 
     /**

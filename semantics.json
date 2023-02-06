@@ -44,5 +44,11 @@
         "label": "URL"
       }
     ]
+  },
+  {
+    "name": "openInTheSameTab",
+    "label": "Open link in the same tab",
+    "importance": "low",
+    "type": "boolean"
   }
 ]
