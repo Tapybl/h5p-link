@@ -46,8 +46,8 @@
     ]
   },
   {
-    "name": "openInTheSameTab",
-    "label": "Open link in the same tab",
+    "name": "openInTheNewTab",
+    "label": "Open the link in new window/tab",
     "importance": "low",
     "type": "boolean"
   }
